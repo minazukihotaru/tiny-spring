@@ -6,14 +6,24 @@ package com.example.beans;
  * 
  */
 public class BeanReference {
-    private String name;
+    private String ref;
     private Object bean;
-    public String getName() {
-        return name;
+    
+    public BeanReference(String ref) {
+	this.ref=ref;
     }
-    public void setName(String name) {
-        this.name = name;
+    
+
+    public String getRef() {
+        return ref;
     }
+
+
+    public void setRef(String ref) {
+        this.ref = ref;
+    }
+
+
     public Object getBean() {
         return bean;
     }

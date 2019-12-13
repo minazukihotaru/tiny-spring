@@ -8,3 +8,27 @@
 包beans.factory下的抽象类AbstractBeanFactory实现接口BeanFactory和定义一些工厂的方法,继承本类的子类需要实现属性注入的方法applyPropertyValues
 包beans.factory下的AutowireCapableBeanFactory继承了抽象bean工厂，用反射的方法实现了属性注入
 
+2019-12-13
+包beans.io下的接口Resource定义了一个获取资源文件的inputstream的方法，每个resource对应某文件的inputstream
+包beans.io下的接口ResourceLoader定义了一个从String路径获取Resouce的方法
+
+包beans.io下的类UrlResource实现接口Resource，提供了根据url中获取inputstream的方法
+包beans.io下的类UrlResourceLoader实现接口ResourceLoader，提供了根据String路径获取url，在根据url通过UrlResource获取resource，返回值为resource
+
+包beans下的接口BeanDefinitionReader为从String路径读取bean定义的类定义了一个载入bean的方法
+包beans下的抽象类AbstractBeanDefinitionReader实现接口BeanDefinitionReader，定义了需要获取ResourceLoader和创建Map保存从资源文件中读取到的bean定义
+包beans.xml下的类XmlBeanDefinitionReader继承了抽象类AbstractBeanDefinitionReader,实现了读取xml资源文件
+
+
+
+
+
+
+
+
+
+
+
+
+
+

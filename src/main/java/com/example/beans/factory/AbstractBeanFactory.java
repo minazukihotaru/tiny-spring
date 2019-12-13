@@ -16,7 +16,7 @@ import com.example.beans.BeanPostProcessor;
  * （所谓存在于容器中，是指容器可以通过 beanDefinitionMap 获取 BeanDefinition 进而通过其 getBean() 方法获取 Bean。）
  */
 
-public class AbstractBeanFactory implements BeanFactory {
+public abstract class AbstractBeanFactory implements BeanFactory {
 
     
     //bean定义保存在线程安全的Map里

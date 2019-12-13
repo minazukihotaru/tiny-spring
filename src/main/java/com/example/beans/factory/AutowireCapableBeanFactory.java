@@ -31,7 +31,7 @@ public class AutowireCapableBeanFactory extends AbstractBeanFactory {
 	    if (value instanceof BeanReference) {
 		// 如果value是ref，那就把ref中的bean装到value里
 		BeanReference beanReference = (BeanReference) value;
-		value = getBean(beanReference.getName());
+		value = getBean(beanReference.getRef());
 	    }
 	    // 接下来把value放入bean对象的对应成员变量中,用bean对象的set方法
 	    try {
@@ -44,10 +44,15 @@ public class AutowireCapableBeanFactory extends AbstractBeanFactory {
 		setterMethod.invoke(bean, value);// 让bean对象执行setterMethod方法，参数为value
 	    } catch (NoSuchMethodException e) {
 		//如果没有对应的setter方法，那就直接把value塞给bean的成员
-		
+
 		Field field = bean.getClass().getDeclaredField(propertyValue.getName());
 		field.setAccessible(true);
+		
 		field.set(bean,value);//把bean对象的field成员赋值为value
+		
+		/*
+		 * @从xml中读取到的属性的value都是String类型的，可能需要转换
+		 */
 	    }
 
 	}
